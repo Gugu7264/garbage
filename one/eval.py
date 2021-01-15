@@ -44,4 +44,7 @@ async def eval(ctx, *, body: str):
                 else:
                   await ctx.send(f'```py\n{value}\n```')
         else:
-            pass
+            emb = discord.Embed() # Don't forget to import discord if needed dum
+            emb.add_field(name="Input:", value=textwrap.indent(body, "  "))
+            emb.add_field(name="Output:", value=value)
+            await ctx.send(embed=emb) # heh see if this code works
